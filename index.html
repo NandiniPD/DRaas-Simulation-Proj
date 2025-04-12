@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRaaS Simulation - Ransomware Recovery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shield-alt"></i> Ransomware Resilience with DRaaS</h1>
+        <p class="description">This interactive simulation demonstrates how Disaster Recovery as a Service (DRaaS) helps organizations recover from ransomware attacks using cloud-based backup and restore capabilities.</p>
+
+        <div class="status-container">
+            <div id="statusBox">
+                <h2>System Status</h2>
+                <div class="status-details">
+                    <p>Backup Status: <span id="backupStatus">OK <i class="fas fa-check-circle"></i></span></p>
+                    <p>Last Backup: <span id="lastBackup">Just now</span></p>
+                    <p>Recovery Point: <span id="recoveryPoint">5 minutes ago</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <h2>Attack & Recovery Timeline</h2>
+            <div class="timeline" id="timeline">
+                <div class="timeline-item" id="timeline-normal">
+                    <div class="timeline-content">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Normal Operation</p>
+                    </div>
+                </div>
+                <div class="timeline-item" id="timeline-attack">
+                    <div class="timeline-content">
+                        <i class="fas fa-virus"></i>
+                        <p>Ransomware Attack</p>
+                    </div>
+                </div>
+                <div class="timeline-item" id="timeline-recovery">
+                    <div class="timeline-content">
+                        <i class="fas fa-sync-alt"></i>
+                        <p>Recovery Process</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="simulateAttack()">
+                <i class="fas fa-biohazard"></i> Simulate Ransomware Attack
+            </button>
+            <button onclick="restoreBackup()">
+                <i class="fas fa-cloud-download-alt"></i> Restore from DRaaS
+            </button>
+        </div>
+
+        <div class="simulation-log">
+            <h2>Simulation Log</h2>
+            <div id="logContainer"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>DRaaS Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Fast Recovery</h3>
+                    <p>Minimize downtime with rapid restore capabilities</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure Storage</h3>
+                    <p>Immutable backups protected from ransomware</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud-Based</h3>
+                    <p>Access backups from anywhere, anytime</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

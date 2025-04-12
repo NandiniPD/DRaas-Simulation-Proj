@@ -112,5 +112,73 @@ function initSimulation() {
     addLogEntry('System initialized and running normally', 'info');
 }
 
+// Benefit details content
+const benefitDetails = {
+    recovery: {
+        title: "Fast Recovery Features",
+        description: `
+            <p>Our DRaaS solution ensures minimal downtime with industry-leading recovery capabilities:</p>
+            <ul>
+                <li><strong>Rapid Recovery Time Objective (RTO):</strong> Restore operations within minutes</li>
+                <li><strong>Automated Recovery:</strong> One-click restoration process</li>
+                <li><strong>Continuous Data Protection:</strong> Recovery points as recent as 5 minutes</li>
+                <li><strong>Parallel Recovery:</strong> Restore multiple systems simultaneously</li>
+                <li><strong>Testing Capabilities:</strong> Regular recovery testing without disruption</li>
+            </ul>
+        `
+    },
+    storage: {
+        title: "Secure Storage Solutions",
+        description: `
+            <p>Enterprise-grade security features protect your backup data:</p>
+            <ul>
+                <li><strong>Immutable Storage:</strong> Prevents unauthorized modification of backups</li>
+                <li><strong>End-to-End Encryption:</strong> AES-256 encryption for data at rest and in transit</li>
+                <li><strong>Air-gapped Backups:</strong> Isolated storage for maximum protection</li>
+                <li><strong>Version Control:</strong> Multiple recovery points for each backup</li>
+                <li><strong>Compliance:</strong> Meets industry standards and regulations</li>
+            </ul>
+        `
+    },
+    cloud: {
+        title: "Cloud-Based Advantages",
+        description: `
+            <p>Leverage the power of cloud technology for your disaster recovery:</p>
+            <ul>
+                <li><strong>Global Accessibility:</strong> Access your backups from anywhere</li>
+                <li><strong>Scalable Storage:</strong> Automatically adjust storage capacity</li>
+                <li><strong>Geographic Redundancy:</strong> Multiple data center locations</li>
+                <li><strong>Cost-Effective:</strong> Pay only for what you use</li>
+                <li><strong>24/7 Availability:</strong> Always-on backup and recovery services</li>
+            </ul>
+        `
+    }
+};
+
+// Show benefit details in modal
+function showBenefitDetails(benefitType) {
+    const modal = document.getElementById('benefitModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const details = benefitDetails[benefitType];
+
+    modalTitle.textContent = details.title;
+    modalDescription.innerHTML = details.description;
+    modal.style.display = 'block';
+
+    // Add click event to close button
+    const closeButton = document.querySelector('.close-button');
+    closeButton.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+}
+
 // Start the simulation when the page loads
 window.onload = initSimulation;

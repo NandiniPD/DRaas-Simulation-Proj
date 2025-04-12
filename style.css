@@ -31,7 +31,21 @@ h1 {
 .description {
     max-width: 800px;
     margin: 0 auto 40px;
-    line-height: 1.6;
+    line-height: 1.8;
+    font-size: 1.1em;
+    color: #444;
+    white-space: pre-line;
+}
+
+.description p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #444;
+}
+
+.description p:first-child {
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 .status-container {
@@ -175,6 +189,7 @@ h1 {
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .benefit-card:hover {
@@ -208,4 +223,76 @@ h1 {
 
 #backupStatus.recovering {
     color: var(--warning-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #f44336;
+}
+
+#modalContent {
+    margin-top: 20px;
+}
+
+#modalTitle {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#modalDescription {
+    line-height: 1.6;
+    color: #666;
+}
+
+#modalDescription ul {
+    text-align: left;
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+#modalDescription li {
+    margin: 10px 0;
 }

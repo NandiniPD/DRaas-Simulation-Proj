@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1><i class="fas fa-shield-alt"></i> Ransomware Resilience with DRaaS</h1>
-        <p class="description">This interactive simulation demonstrates how Disaster Recovery as a Service (DRaaS) helps organizations recover from ransomware attacks using cloud-based backup and restore capabilities.</p>
+        <p class="description">Disaster Recovery as a Service (DRaaS) provides enterprise-grade protection against ransomware threats through secure cloud backup technology. Watch our system detect attacks, initiate protection, and recover your business operations in real-time.</p>
 
         <div class="status-container">
             <div id="statusBox">
@@ -64,20 +64,31 @@
         <div class="info-section">
             <h2>DRaaS Benefits</h2>
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="showBenefitDetails('recovery')">
                     <i class="fas fa-clock"></i>
                     <h3>Fast Recovery</h3>
                     <p>Minimize downtime with rapid restore capabilities</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="showBenefitDetails('storage')">
                     <i class="fas fa-lock"></i>
                     <h3>Secure Storage</h3>
                     <p>Immutable backups protected from ransomware</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="showBenefitDetails('cloud')">
                     <i class="fas fa-cloud"></i>
                     <h3>Cloud-Based</h3>
                     <p>Access backups from anywhere, anytime</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefit Details Modal -->
+        <div id="benefitModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div id="modalContent">
+                    <h2 id="modalTitle"></h2>
+                    <div id="modalDescription"></div>
                 </div>
             </div>
         </div>

@@ -6,6 +6,12 @@ let simulationState = {
     recoveryPoint: new Date()
 };
 
+// Clear log entries
+function clearLog() {
+    const logContainer = document.getElementById('logContainer');
+    logContainer.innerHTML = '';
+}
+
 // Add a log entry to the simulation log
 function addLogEntry(message, type = 'info') {
     const logContainer = document.getElementById('logContainer');
@@ -69,12 +75,15 @@ function simulateAttack() {
     simulationState.isAttacked = true;
     simulationState.isRecovering = false;
     
+    clearLog(); // Clear previous logs
     updateTimeline();
     updateStatus();
     
-    addLogEntry('⚠️ Ransomware attack detected! Files are being encrypted...', 'danger');
-    addLogEntry('Critical systems compromised', 'danger');
-    addLogEntry('Attempting to access backup systems...', 'info');
+    addLogEntry('⚠️ ALERT: Ransomware attack detected!', 'danger');
+    addLogEntry('System files are being encrypted...', 'danger');
+    addLogEntry('Critical data access blocked', 'danger');
+    addLogEntry('Ransom demand received: 2.5 BTC', 'danger');
+    addLogEntry('Checking backup systems availability...', 'info');
 }
 
 // Restore from backup
@@ -88,8 +97,17 @@ function restoreBackup() {
     updateTimeline();
     updateStatus();
     
-    addLogEntry('Initiating recovery process...', 'info');
-    addLogEntry('Connecting to DRaaS cloud backup...', 'info');
+    clearLog(); // Clear previous logs
+    addLogEntry('Initiating DRaaS recovery process...', 'info');
+    addLogEntry('Connecting to secure cloud backup...', 'info');
+    
+    setTimeout(() => {
+        addLogEntry('Verifying backup integrity...', 'info');
+    }, 1000);
+
+    setTimeout(() => {
+        addLogEntry('Starting system restoration...', 'info');
+    }, 2000);
     
     // Simulate recovery process
     setTimeout(() => {
@@ -100,8 +118,9 @@ function restoreBackup() {
         updateTimeline();
         updateStatus();
         
-        addLogEntry('✅ Backup restored successfully!', 'success');
-        addLogEntry('All systems operational', 'success');
+        addLogEntry('✅ System successfully restored from cloud backup!', 'success');
+        addLogEntry('All services operational', 'success');
+        addLogEntry('No data loss detected', 'success');
     }, 3000);
 }
 
